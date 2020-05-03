@@ -1,0 +1,76 @@
+<mat-form-field>
+  <mat-label>Enter Cuisine for filtering</mat-label>
+  <input matInput (keyup)="applyFilterName($event)" placeholder="Ex. French, Japanese">
+</mat-form-field>
+<br>
+<!-- <mat-form-field>
+  <mat-label>Restaurant Name</mat-label>
+  <input matInput (keyup)="applyFilterName($event)" placeholder="Ex. Le Petit Souffle">
+</mat-form-field> -->
+
+<div class="example-container mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="Restaurant_ID">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.Restaurant_ID}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Restaurant_Name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.Restaurant_Name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Cuisines">
+      <th mat-header-cell *matHeaderCellDef> Cuisines </th>
+      <td mat-cell *matCellDef="let element"> {{element.Cuisines}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Average_Cost_for_two">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Average Cost for 2 </th>
+      <td mat-cell *matCellDef="let element"> {{element.Average_Cost_for_two}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Currency">
+      <th mat-header-cell *matHeaderCellDef> Currency </th>
+      <td mat-cell *matCellDef="let element"> {{element.Currency}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Has_Table_booking">
+      <th mat-header-cell *matHeaderCellDef> Has Table Booking </th>
+      <td mat-cell *matCellDef="let element"> {{element.Has_Table_booking}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Has_Online_delivery">
+      <th mat-header-cell *matHeaderCellDef> Online Delivery </th>
+      <td mat-cell *matCellDef="let element"> {{element.Has_Online_delivery}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Aggregate_rating">
+      <th mat-header-cell *matHeaderCellDef> Agg Rating </th>
+      <td mat-cell *matCellDef="let element"> {{element.Aggregate_rating}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Rating_color">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Rating Color </th>
+      <td mat-cell *matCellDef="let element"> {{element.Rating_color}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Rating_text">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Rating Text </th>
+      <td mat-cell *matCellDef="let element"> {{element.Rating_text}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Votes">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Votes </th>
+      <td mat-cell *matCellDef="let element"> {{element.Votes}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
